@@ -19,26 +19,34 @@ generateBtnElement.addEventListener("click", function(){
     // Recupero l'input dell'utente
     let userInput = parseInt(userInputElement.value);
 
-    // Ciclo in base al numero inserito dall'utente
-    for (i = 0; i < userInput; i++) {
-
-        // Creo un array vuoto
-        let numsList = [];
-
-        // Popolo l'array con 10 elementi
-        for (y = 0; y < 10; y++) {
-
-            // Genero un numero casuale da 1 a 100
-            let randomNum = Math.floor(Math.random() * 100) + 1;
-
-            // Aggiungo il numero all'array
-            numsList.push(randomNum);
-
+    // Controllo che l'input sia un numero valido
+    if (isNaN(userInput)) {
+        alert("Per favore, riprova inserendo un numero valido.");
+    } else {
+        
+        // Ciclo in base al numero inserito dall'utente
+        for (i = 0; i < userInput; i++) {
+    
+            // Creo un array vuoto
+            let numsList = [];
+    
+            // Popolo l'array con 10 elementi
+            for (y = 0; y < 10; y++) {
+    
+                // Genero un numero casuale da 1 a 100
+                let randomNum = Math.floor(Math.random() * 100) + 1;
+    
+                // Aggiungo il numero all'array
+                numsList.push(randomNum);
+    
+            }
+    
+            // Stampo l'array
+            printArrayElement.innerHTML += `${numsList.join(" - ")}<br>`
+    
         }
-
-        // Stampo l'array
-        printArrayElement.innerHTML += `${numsList.join(" - ")}<br>`
-
+        
     }
+
 
 });
